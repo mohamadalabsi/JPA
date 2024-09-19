@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/people</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">0000</property>
+        <!--       <property name="hbm2ddl.auto">create</property>  or update || this to create the table in the database if does not exist and it will drop the old table if it exist  -->
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Show SQL statements in logs -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Automatically update schema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property> <!-- this is for the get method and not for the query        -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <!--        <property name="hibernate.cache.provider_configuration_file_resource_path"> value="classpath:ehcache.xml"</property>-->
+
+
+    </session-factory>
+</hibernate-configuration>
